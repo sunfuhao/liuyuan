@@ -8,45 +8,10 @@
       </block> 
 </swiper>
 <view class='main_box'>
-  <view class="index_nav">
-    <view style='float:left' class='nav-left'>推荐人选</view>
-    <view style='float:right' class='nav-right'>查看全部>></view>
-  </view>
-  <view class='list_main'>
-    <view wx:if="{{list.data}}">
-      <view class="live_item" wx:for="{{list.data}}" wx:for-item="list">
-        <navigator url="/pages/live_detail/live_detail?liveid={{list.id}}&schid={{list.id}}">
-          <view class="list-container">
-            <view class="list-icon">
-              <image src="{{list.icon}}" class="index-icon"></image>
-            </view>  
-          <!-- <view>{{list.nickname}}</view> -->
-            <view class="index-list-right">
-              <view class="list-sex" wx:if="{{list.sex ==1}}">
-                男
-              </view>
-              <view class="list-sex" wx:if="{{list.sex ==2}}">
-                女
-              </view>
-              <view class="list_isay">{{list.isay}}</view>
-               <view class="list_footer">
-               <view class='list_item'>❤️</view>
-               <view class='list_item'>{{list.nickname}}</view>
-               <view class='list_item'>{{list.currentarea}}</view>
-               <view class='list_item'>{{list.age}}</view>
-               </view>
-            </view>
-          </view>
-        </navigator>
-      </view>
-    </view>
-    <view wx:if="{{list.data.length==0}}" class='no-data'>
-      <view class='icon-nothing'></view>
-      暂无数据
-    </view>
+  <view class='main_box'>
+    快速匹配
   </view>
 </view>
 <!--刷新按钮  -->
-<view class='refesh' data-time="{{list.cur_date}}" bindtap='selectDate'></view>
 <import src="../footer/footer.wxml" />
 <template is='footer' data='{{footer}}'></template>
