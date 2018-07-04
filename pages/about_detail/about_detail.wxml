@@ -1,0 +1,120 @@
+<view class='ab_container'>
+  <view class='card'>
+  <form bindsubmit="formBindsubmit" bindreset="formReset">  
+    <view class='tips'>
+      基本信息
+      <view class='list'>
+      头像：
+        <view class='me_img_box' >
+          <!-- <image src="{{userinfo.avatarUrl}}" class='header-img' class='me_img' wx:if = "{{content.icon ===''}} "/>  -->
+          <image src="{{content.icon}}" class='header-img' class='me_img' wx:if = "{{content.icon !=''}}" /> 
+        </view >
+      </view>
+      <view class='list input_list'>
+        <text>昵称：</text>    
+        <view class='_input' style='background:gray'>
+        <input value='{{content.nickname}}' disabled='true' name="nickname">
+        </input>
+        </view >
+        <text style='color:red'>＊</text>
+      </view>
+      <view class='list input_list'>
+        <text>性别：</text>    
+        <view class='_input'>
+        <picker bindchange="bindPickerChange" value="{{sexindex}}" range="{{sexarr}}" name="sex">
+        <view class="picker">
+      {{sexarr[sexindex-1]}}
+        </view>
+        </picker>
+        </view >
+        <text style='color:red'>＊</text>
+      </view>
+      <view class='list input_list'>
+        <text>年龄：</text>    
+        <view class='_input'>
+        <input value='{{content.age}}' name="age">
+        </input>
+        </view >
+        <text style='color:red'>＊</text>
+      </view>
+      <view class='list input_list'>
+        <text>家乡：</text>    
+        <view class='_input'>
+        <input value='{{content.housearea}}' name="housearea">
+        </input>
+        </view >
+        <text style='color:red'>＊</text>
+      </view>
+      <view class='list input_list'>
+        <text>现居：</text>    
+        <view class='_input'>
+        <input value='{{content.currentarea}}' name="currentarea">
+        </input>
+        </view >
+        <text style='color:red'>＊</text>
+      </view>
+      <view class='list input_list'>
+        <text>身高：</text>    
+        <view class='_input'>
+        <input value='{{content.height}}' name="height">
+        </input>
+        </view >
+      </view>
+      <view class='list input_list'>
+        <text>学校：</text>    
+        <view class='_input'>
+        <input value='{{content.school}}' name="school">
+        </input>
+        </view >
+      </view>
+      <view class='list input_list'>
+        <text>姓名：</text>    
+        <view class='_input'>
+        <input value='{{content.realname}}' name="realname">
+        </input>
+        </view >
+      </view>
+      <view class='list input_list'>
+        <text>工作：</text>    
+        <view class='_input'>
+        <input value='{{content.work}}' name="work">
+        </input>
+        </view >
+      </view>
+      <view class='list input_list'>
+        <text>手机：</text>    
+        <view class='_input'>
+        <input value='{{content.iphone}}' name="iphone">
+        </input>
+        </view >
+      </view>
+      <view class='list input_list'>
+        <text>微信：</text>    
+        <view class='_input'>
+        <input value='{{content.wechat}}' name="wechat">
+        </input>
+        </view >
+        <text style='color:red'>＊</text>
+      </view>
+      <view class='list input_list'>
+        <text>随语：</text>    
+        <view class='_input'>
+        <textarea value='{{content.isay}}' name="isay" class='text_area'></textarea>
+        </view >
+        <text style='color:red'>＊</text>
+      </view>
+      <view>
+        <!--监听按钮-->
+        <!-- <button type="primary" bindtap="uploadPhoto">点击我选择相册</button> -->
+        <!--通过数据绑定的方式动态获取js数据-->
+        <!-- <image src="{{source}}" mode="aspecFill" style="width: 640rpx; height: 640rpx"/> -->
+      </view>
+      <view class='list input_list'>
+        <button formType="submit" style="background:#ff9900" class="sub_mit">提交</button> 
+      </view>
+    </view>
+    </form>  
+  </view>
+</view>
+<import src="../footer/footer.wxml" />
+<template is='footer' data='{{footer}}'></template>

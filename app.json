@@ -1,0 +1,19 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/about/about",
+    "pages/about_detail/about_detail",
+    "pages/news_list/news_list",
+    "pages/news_info/news_info",
+    "pages/team_info/team_info",
+    "pages/player_detail/player_detail",
+    "pages/live_detail/live_detail",
+    "pages/team_rank/team_rank"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#00AA98",
+    "navigationBarTitleText": "WeHave",
+    "navigationBarTextStyle": "#FFF"
+  }
+}

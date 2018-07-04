@@ -1,0 +1,174 @@
+/* pages/nba/live_detail.wxss */
+
+page {
+  height: auto;
+  min-height: 100%;
+}
+.de_container{
+  padding: 0rpx 2%;
+}
+.header_container{
+ display: flex;
+}
+.me_img_box{
+  width: 250rpx;
+  height: 250rpx;
+  border-radius: 150rpx;
+  overflow: hidden;
+  text-align: center;
+  margin: 80rpx auto;
+}
+.me_img{
+  width: 250rpx;
+  height: 250rpx;
+}
+.de_imglist{
+  width: 75%;
+  margin: 20rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  flex: 5;
+  
+  /* border-right:1px solid #333;  */
+}
+.de_header{
+ font-size: 36rpx;
+ color: #333;
+ height: 100%;
+ min-height: 100%;
+ width: 100%;
+ text-align: center;
+ flex: 2;
+}
+.de_header_item{
+  width: 50%;
+  padding-top:15rpx;
+  padding-bottom:5rpx;
+  border-bottom: 1px solid #d5d6de;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 36rpx;
+  color: black;
+  font-family: '微软雅黑';
+}
+.de_img_item{
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.body_item{
+  border-bottom: 1px solid #d5d6de;
+  font-size: 36rpx;
+  font-family: '宋体'
+}
+.con_info{
+  font-size: 30rpx;
+  float: right
+}
+
+
+/*button*/  
+.btn {  
+  width: 80%;  
+  padding: 20rpx 0;  
+  border-radius: 10rpx;  
+  text-align: center;  
+  margin: 40rpx 10%;  
+  background: #000;  
+  color: #fff;  
+}  
+  
+/*mask*/  
+.drawer_screen {  
+  width: 100%;  
+  height: 100%;  
+  position: fixed;  
+  top: 0;  
+  left: 0;  
+  z-index: 1000;  
+  background: #000;  
+  opacity: 0.5;  
+  overflow: hidden;  
+}  
+  
+/*content*/  
+.drawer_box {  
+  width: 650rpx;  
+  overflow: hidden;  
+  position: fixed;  
+  top: 40%;  
+  left: 0;  
+  z-index: 1001;  
+  background: #FAFAFA;  
+  margin: -150px 50rpx 0 50rpx;  
+  border-radius: 3px;  
+}  
+  
+.drawer_title{  
+  padding:15px 15px 5px 15px;  
+  font: 20px "microsoft yahei";  
+  text-align: center;  
+}
+.drawer_sub_title{    
+  font: 25rpx "microsoft yahei";  
+  text-align: center;  
+}    
+.drawer_content {  
+  height: 250px;  
+  overflow-y: scroll; /*超出父盒子高度可滚动*/  
+}  
+  
+.btn_ok{  
+  padding: 10px;  
+  font: 20px "microsoft yahei";  
+  text-align: center;  
+  border-top: 1px solid #E8E8EA;  
+  color: #3CC51F;  
+}  
+  
+.top{  
+    padding-top:8px;  
+}  
+.bottom {  
+    padding-bottom:8px;  
+}  
+.title {  
+    height: 30px;  
+    line-height: 30px;  
+    width: 160rpx;  
+    text-align: center;  
+    display: inline-block;  
+    font: 300 28rpx/30px "microsoft yahei";  
+}  
+  
+.input_base {  
+    border: 2rpx solid #ccc;  
+    padding-left: 10rpx;  
+    margin-right: 50rpx;  
+}  
+.input_h30{  
+    height: 30px;  
+    line-height: 30px;  
+}  
+.input_h60{  
+    height: 60px;  
+}  
+.input_view{  
+    font: 12px "microsoft yahei";  
+    background: #fff;  
+    color:#000;  
+    line-height: 30px;  
+}  
+  
+input {  
+    font: 12px "microsoft yahei";  
+    background: #fff;  
+    color:#000 ;  
+}  
+radio{  
+    margin-right: 20px;  
+}  
+.grid { display: -webkit-box; display: box; }  
+.col-0 {-webkit-box-flex:0;box-flex:0;}  
+.col-1 {-webkit-box-flex:1;box-flex:1;}  
+.fl { float: left;}  
+.fr { float: right;} 

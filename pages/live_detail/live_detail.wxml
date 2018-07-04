@@ -1,0 +1,107 @@
+<view class='de_container'>
+<view class='header_container'>
+  <view  style='flex:3' >
+    <view class='me_img_box'>
+    <image src="{{content.icon}}" class='header-img' class='me_img' wx:if = "{{content.icon !=''}}" /> 
+    </view>
+  </view >
+<!-- <view wx:if="{{content.imglist.length !=0}}" class='de_imglist' >
+   <swiper indicator-dots="{{indicatorDots}}" 
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true"> 
+      <block wx:for="{{content.imglist}}" class='de_img_item'> 
+        <swiper-item> 
+            <image src="{{item}}" class="slide-image" width="60%" height="0" class='header-img'/> 
+        </swiper-item> 
+      </block> 
+  </swiper>    
+</view> -->
+
+  <view class='de_header'  style='flex:2'>
+      <view class='de_header_item'>{{content.nickname}}</view>
+      <view class='de_header_item'>
+        <view class="list-sex" wx:if="{{content.sex ==1}}">
+          男
+        </view>
+        <view class="list-sex" wx:if="{{content.sex ==2}}">
+          女
+        </view>     
+      </view>
+      <view class='de_header_item'>{{content.age}}</view>
+      <view class='de_header_item'>{{content.currentarea}}</view>
+      <view class='de_header_item'>💕{{content.heart}}    </view>
+  </view>
+  </view>
+<view class='de_body'>
+  <view class='body_item' wx:if="{{content.isay !=''}}">TA说:{{content.isay}}</view>
+  <view class='body_item' wx:if="{{content.id !=''}}">id:{{content.id}}<text class='con_info'>(就是给TA加的一个编号)</text></view>
+  <view class='body_item' wx:if="{{content.nickname !=''}}">昵称:{{content.nickname}}<text class='con_info'>(就是等于TA的微信名)</text></view>
+  <view class='body_item' wx:if="{{content.realname !=''}}">真实姓名:{{content.realname}}<text class='con_info'>(TA原来叫这名！)</text></view>
+  <view class='body_item' wx:if="{{content.sex !=''}}">性别:{{content.sex}}<text  class='con_info'>((1是男 2是女))</text></view>
+  <view class='body_item' wx:if="{{content.age !=''}}">年龄:{{content.age}}</view>
+  <view class='body_item' wx:if="{{content.currentarea !=''}}">现居:{{content.currentarea}}</view>
+  <view class='body_item' wx:if="{{content.height !=''}}">身高:{{content.height}}</view>
+  <view class='body_item' wx:if="{{content.housearea !=''}}">家乡:{{content.housearea}}</view>
+  <view class='body_item' wx:if="{{content.study !=''}}">学历:{{content.study}}</view>
+  <view class='body_item' wx:if="{{content.school !=''}}">学校:{{content.school}}</view>
+  <view class='body_item' wx:if="{{content.work !=''}}">工作:{{content.work}}</view>
+  <view class='body_item' wx:if="{{content.realname !=''}}">姓名:{{content.realname}}</view>
+  <view class='body_item' wx:if="{{content.wechat !=''}}">微信号:
+    <text wx:if="{{userpower !='2'}}" >{{content.wechat}}</text>
+    <text wx:if="{{userpower =='2'}}" bindtap="powerDrawer" data-statu="open">点击查看微信号</text>
+  </view>
+  <view class='body_item' wx:if="{{content.iphone !=''}}">手机号:
+    <text wx:if="{{userpower!='2'}}" >{{content.iphone}}</text>
+    <text wx:if="{{userpower=='2'}}" bindtap="powerDrawer" data-statu="open">点击查看手机号</text>
+  </view>
+</view>
+
+</view>
+  
+<!--mask-->  
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>  
+<!--content-->  
+<!--使用animation属性指定需要执行的动画-->  
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">  
+  
+  <!--drawer content-->  
+  <view class="drawer_title">个人信息</view>  
+  <view class="drawer_sub_title">说明：想看他人保密资料吗？就先登记下个人信息吧</view>  
+  <form bindsubmit="formBindsubmit" bindreset="formReset">  
+  <view class="drawer_content">
+  
+    <view class="top grid">  
+      <label class="title col-0">昵称</label>  
+      <input class="input_base input_h30 col-1" name="rName" value="{{userinfo.nickName}}" style='background:gray' disabled='true'></input>  
+    </view>  
+    <view class="top grid">  
+      <label class="title col-0">性别</label>  
+      <picker class='input_base input_h30 col-1' bindchange="bindPickerChange" value="{{sexindex}}" range="{{sexarr}}" name="sex">
+        <view class="picker" style='font-size:36rpx'>
+      {{sexarr[sexindex-1]}}
+        </view>
+        </picker>  
+    </view>  
+    <view class="top grid">  
+      <label class="title col-0">年龄</label>  
+      <input class="input_base input_h30 col-1" name="phone" name='age'></input>  
+    </view>  
+    <view class="top grid">  
+      <label class="title col-0">家乡</label>  
+      <input class="input_base input_h30 col-1" name="Email" value="{{userinfo.city}}"></input>  
+    </view>  
+    <view class="top bottom grid">  
+      <label class="title col-0">现居</label>  
+      <input class="input_base input_h30 col-1" name="currentarea" value='{{userinfo.city}}'></input>  
+    </view>
+    <view class="top bottom grid">  
+      <label class="title col-0">微信</label>  
+      <input class="input_base input_h30 col-1" name="wechat" ></input>  
+    </view>   
+  </view>  
+  <view class="btn_ok" bindtap="powerDrawer" data-statu="close">确定</view>  
+  </form>
+</view>  
+
+
+<import src="../footer/footer.wxml" />
+<template is='footer' data='{{footer}}'></template>

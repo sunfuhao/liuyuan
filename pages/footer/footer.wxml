@@ -1,0 +1,17 @@
+<template name="footer">
+  <view class='visibility'></view>
+  <view class='footer'>
+    <view class="foot-item   {{footer==0 ? 'active' : ''}}">
+      <navigator url="/pages/index/index">
+        <view class='icon icon-ball icon-ball-active '></view>
+        <text>首页</text>
+      </navigator>
+    </view>
+    <view class="foot-item   {{footer==1 ? 'active' : ''}}">
+      <navigator url="/pages/about/about">
+        <view class='icon icon-news icon-news-active'></view>
+        <text>个人</text>
+      </navigator>
+    </view>
+  </view>
+</template>
