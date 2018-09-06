@@ -1,4 +1,3 @@
-
 <swiper indicator-dots="{{indicatorDots}}" 
         autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true"> 
       <block wx:for="{{arr}}"> 
@@ -8,10 +7,134 @@
       </block> 
 </swiper>
 <view class='main_box'>
-  <view class='main_box'>
-    快速匹配
+  <view class='box_slect'>
+    <view class="section">
+      <view  class="area_box" >
+       <input class="input_base input_h30 col-1" name="housearea" value="{{search_provid}}-{{search_cityid}}" style="display:none"> </input> 
+        <picker style="width:170px;display:inline-block" bindchange="bindPickerChangesearch" value="{{search_provid}}" range="{{province}}">
+           {{province[search_provid]}}-
+        </picker>
+           <picker style="width:170px;display:inline-block" bindchange="bindPickerCitysearch" value="{{search_cityid}}" range="{{city[search_provid].cities}}">
+           {{city[search_provid].cities[search_cityid]}}
+        </picker>
+      </view>
+    </view>
+    <view class="section">
+      <picker class='' bindchange="bindSearchSexChange" value="{{sexindex}}" range="{{sexarr}}" name="sex">
+        <view class="picker" style='font-size:36rpx'>
+          {{sexarr[search_sexindex-1]}}
+        </view>
+        </picker> 
+    </view>
+    <view class="section">
+      <picker class='' bindchange="bindSearchAge" value="{{search_ageindex}}" range="{{agearr}}" name="sex">
+        <view class="picker" style='font-size:36rpx'>
+          {{agearr[search_ageindex-1]}}
+        </view>
+        </picker> 
+    </view>
+    <view class="section">
+      <picker class='' bindchange="bindSearchheight" value="{{search_heightindex}}" range="{{height}}" name="sex">
+        <view class="picker" style='font-size:36rpx'>
+          {{height[search_heightindex-1]}}
+        </view>
+        </picker> 
+    </view>
+  </view>
+  <view class='box_button'>
+  
+    <text bindtap="powerDrawer" wx:if="{{newpeople}}" data-statu="open">填写个人信息
+    </text>
+    <text bindtap="powerToSearch" wx:else="{{newpeople}}">快速匹配
+    </text>
+    <text bindtap="powerToSearch">快速匹配
+    </text>
+  </view>
+  <view class='box_view'>
+    <text>你还有：{{content.free_sraech}} 次免费匹配
+    </text>
+    <text>本次匹配你将花费：{{search_price}} 元
+    </text>
   </view>
 </view>
+
+
+<!--mask one-->  
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>  
+<!--content-->  
+<!--使用animation属性指定需要执行的动画-->  
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">  
+  
+  <!--drawer content-->  
+  <view class="drawer_title">个人信息</view>  
+  <view class="drawer_sub_title">说明：想看他人保密资料吗？就先登记下个人信息吧</view>  
+  <form bindsubmit="formBindsubmit" bindreset="formReset">  
+  <view class="drawer_content">
+  
+    <view class="top grid">  
+      <label class="title col-0">昵称</label>  
+      <input class="input_base input_h30 col-1" name="nickname" value="{{userinfo.nickName}}"></input>  
+    </view>  
+    <view class="top grid">  
+      <label class="title col-0">性别</label>  
+      <picker class='input_base input_h30 col-1' bindchange="bindPickerChange" value="{{sexindex}}" range="{{sexarr}}" name="sex">
+        <view class="picker" style='font-size:36rpx'>
+      {{sexarr[sexindex-1]}}
+        </view>
+        </picker>
+    </view>
+    <view class="top grid">
+      <label class="title col-0">年龄</label>
+      <input class="input_base input_h30 col-1" name="phone" name='age'  type="number" maxlength="3"></input>
+    </view>
+    <view class="top grid">
+      <label class="title col-0">家乡</label>
+      <view  class="area_box" >
+       <input class="input_base input_h30 col-1" name="housearea" value="{{provinceId}}-{{cityId}}" style="display:none"> </input> 
+        <picker style="width:170px;display:inline-block" bindchange="bindPickerChangeSheng" value="{{provinceId}}" range="{{province}}">
+           {{province[provinceId]}}-
+        </picker>
+           <picker style="width:170px;display:inline-block" bindchange="bindPickerCity" value="{{cityId}}" range="{{city[provinceId].cities}}">
+           {{city[provinceId].cities[cityId]}}
+        </picker>
+      </view>
+    </view>
+    <view class="top bottom grid">  
+      <label class="title col-0">现居</label>  
+      <view  class="area_box" >
+       <input class="input_base input_h30 col-1" name="currentarea" value="{{new_provid}}-{{new_cityid}}" style="display:none"> </input> 
+        <picker style="width:170px;display:inline-block" bindchange="bindPickerChangenew" value="{{new_provid}}" range="{{province}}">
+           {{province[new_provid]}}-
+        </picker>
+           <picker style="width:170px;display:inline-block" bindchange="bindPickerCitynew" value="{{new_cityid}}" range="{{city[new_provid].cities}}">
+           {{city[new_provid].cities[new_cityid]}}
+        </picker>
+      </view>
+    </view>
+    <view class="top bottom grid">
+      <label class="title col-0">微信</label>  
+      <input class="input_base input_h30 col-1" name="wechat" ></input>  
+    </view>
+  </view>  
+  <button class="btn_ok"  data-statu="close" formType="submit">确定</button>  
+  </form>
+  </view>  
+<!-- one end -->
+<view  class="area_box" >
+  <picker style="width:170px;display:inline-block" bindchange="bindPickerChangeSheng" value="{{provinceId}}" range="{{province}}">
+    {{province[provinceId]}}            -
+  </picker>
+     <picker style="width:170px;display:inline-block" bindchange="bindPickerCity" value="{{cityId}}" range="{{city[provinceId].cities}}">
+      {{city[provinceId].cities[cityId]}}
+  </picker>
+</view>
+
+
+
 <!--刷新按钮  -->
+<!--弹层  -->
+<loading wx:if="{{searchtip}}" class="searchtip" >
+    急速匹配中...
+  </loading>
 <import src="../footer/footer.wxml" />
 <template is='footer' data='{{footer}}'></template>

@@ -8,15 +8,20 @@
       <view>个人详细信息 <text style='float:right'>>></text></view>
     </view>
     </navigator>
-    <!-- <view class='me_item'>
-      <view>个人详细信息 <text style='float:right'>>></text></view>
-    </view> -->
-     <view class='me_item'>
+    <!--
+    <view class='me_item'>
       <view>我的权限
       <text class="list_right" wx:if="{{content.power == '2'}}" >可以查看所有人及其联系方式</text>
        </view>
     </view>
     <text style='float:right;color:gray;font-size:30rpx'> tips:发布个人信息可获取所有权限</text>
+    -->
+    <view>
+        例行匹配微信：
+         <view >
+                 <text>{{content}}</text>
+          </view>
+    </view>
   </view>
 </view>
 <import src="../footer/footer.wxml" />

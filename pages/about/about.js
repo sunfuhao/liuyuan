@@ -2,35 +2,40 @@ var app = getApp();
 Page({
   data: {
     list: [],
-    content: [],
+    content: "",
     
   },
   onLoad: function (e) {
     this.live_content(e.schid);
-    this.setData({
-      schid: e.schid,
-      liveid: e.liveid
-    });
-
+    // this.setData({
+    //   schid: e.schid,
+    //   liveid: e.liveid
+    // });
   },
 
   //获取详情数据
   live_content: function (schid) {
     var that = this;
     var params = {
-      schid: schid
+      id: 6666
     };
-    app.api.detail(params)
-      .then(res => {
-        console.log(res.data, 222233);
-        that.setData({
-          content: res.data,
-          userpower: res.data.power
-        });
-      })
-      .catch(e => {
-        console.error(e)
-      });
+    app.api.cha(params)
+    .then(res => {
+      if(res.code == 0){
+        var   i_data = res.data[0]
+        if(i_data){
+          console.log(i_data.yi_search)
+          that.setData({
+            content: i_data.yi_search,
+          });  
+        }
+        
+      }
+      console.log(res)
+    })
+    .catch(e => {
+      console.error(e)
+    });
   },
 
   powerDrawer: function (e) {

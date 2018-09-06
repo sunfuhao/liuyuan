@@ -4,7 +4,7 @@
     <view class="foot-item   {{footer==0 ? 'active' : ''}}">
       <navigator url="/pages/index/index">
         <view class='icon icon-ball icon-ball-active '></view>
-        <text>首页</text>
+        <text>首页a</text>
       </navigator>
     </view>
     <view class="foot-item   {{footer==1 ? 'active' : ''}}">

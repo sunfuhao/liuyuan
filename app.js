@@ -27,6 +27,32 @@ App({
      */
     onLaunch: function() {
 
+        wx.login({
+              success: function(res) {
+                var code = res.code;
+                if (code) {
+                    console.log('获取用户登录凭证：' + code);
+                    wx.request({
+                        url : 'http://localhost:3000/api/getWxCode',
+                        data: {
+                        code: res.code
+                        },
+                        success: function(res){
+                            // if(res.data.status == 100){
+                            //   self.setData({
+                            //     openid: res.data.openid
+                            //   })
+                            // }
+                        },
+                        fail: function(){
+
+                        }
+                    })
+                } else {
+                  console.log('获取用户登录态失败：' + res.errMsg);
+                }
+              }
+        });
         //调用API从本地缓存中获取数据
 
 
